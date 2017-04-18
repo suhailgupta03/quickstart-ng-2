@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroService } from './hero.service';
-
+import { DashboardComponent } from './dashboard.component';
 
 /**
  * - 'imports' contains the list of external modules that the app uses
@@ -28,6 +28,19 @@ import { HeroService } from './hero.service';
          * to this route
          */
         component: HeroesComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'detail/:id',
+        component: HeroDetailComponent
       }
     ])
   ],
@@ -38,7 +51,8 @@ import { HeroService } from './hero.service';
   declarations: [
     AppComponent,
     HeroDetailComponent,
-    HeroesComponent
+    HeroesComponent,
+    DashboardComponent
   ],
   /**
    * To teach the injector how to make a HeroService
