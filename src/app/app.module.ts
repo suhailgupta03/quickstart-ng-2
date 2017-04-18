@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroService } from './hero.service';
+
 
 /**
  * - 'imports' contains the list of external modules that the app uses
@@ -13,7 +15,21 @@ import { HeroService } from './hero.service';
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {
+        /**
+         * The router matches this router's path to the URL
+         * in the browser address bar
+         */
+        path: 'heroes',
+        /**
+         * The component that the router should create when navigating 
+         * to this route
+         */
+        component: HeroesComponent
+      }
+    ])
   ],
   /**
    * A component must be declaredin the module before other components can 
