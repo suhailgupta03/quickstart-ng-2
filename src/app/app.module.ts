@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeroDetailComponent } from './hero-detail.component';
+import { HeroesComponent } from './heroes.component';
+import { HeroService } from './hero.service';
 
 /**
  * - 'imports' contains the list of external modules that the app uses
@@ -19,7 +21,18 @@ import { HeroDetailComponent } from './hero-detail.component';
    */
   declarations: [
     AppComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+    HeroesComponent
+  ],
+  /**
+   * To teach the injector how to make a HeroService
+   * add to the component metadata
+   * - The provider array tells angular to create a fresh instance of 
+   * HeroService when it creates an AppComponent. The AppComponent as 
+   * well as its child component can use the service to get the hero data
+   */
+  providers: [
+    HeroService
   ],
   bootstrap: [AppComponent]
 })
