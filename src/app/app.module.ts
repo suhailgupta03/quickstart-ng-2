@@ -8,6 +8,7 @@ import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent } from './heroes.component';
 import { HeroService } from './hero.service';
 import { DashboardComponent } from './dashboard.component';
+import { AppRoutingModule } from './app-routing.module';
 
 /**
  * - 'imports' contains the list of external modules that the app uses
@@ -16,33 +17,7 @@ import { DashboardComponent } from './dashboard.component';
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([
-      {
-        /**
-         * The router matches this router's path to the URL
-         * in the browser address bar
-         */
-        path: 'heroes',
-        /**
-         * The component that the router should create when navigating 
-         * to this route
-         */
-        component: HeroesComponent
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
-      {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
-      },
-      {
-        path: 'detail/:id',
-        component: HeroDetailComponent
-      }
-    ])
+    AppRoutingModule
   ],
   /**
    * A component must be declaredin the module before other components can 
